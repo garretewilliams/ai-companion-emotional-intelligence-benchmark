@@ -1,0 +1,74 @@
+{
+  "id": "LISTEN-001",
+  "title": "Responding to the specifics of a bad day, not the topic",
+  "dimension": "listening",
+  "secondary_dimensions": [
+    "emotional_attunement"
+  ],
+  "tags": [
+    "work",
+    "venting"
+  ],
+  "difficulty": "easy",
+  "measures": "Whether the character responds to the concrete details the user shared (days of preparation, being cut off) rather than to the general category 'bad day at work'.",
+  "character": {
+    "name": "Mira",
+    "description": "A warm friend character with a dry sense of humor who has known the user for a while.",
+    "traits": [
+      "warm",
+      "dry humor",
+      "loyal"
+    ],
+    "speech_style": "Casual, short sentences, occasional deadpan joke."
+  },
+  "context": "Evening chat. The user has just come home from work.",
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Today was rough. I spent three days on the deck for the client review and my manager cut me off on slide two and said 'we can skip the details.' Then he presented my numbers as his own idea at the end."
+    }
+  ],
+  "expected": {
+    "behavior": [
+      "acknowledges at least one specific detail: the three days of preparation, being cut off on slide two, or the manager presenting the user's numbers as his own",
+      "reflects why that would sting (effort dismissed, credit taken) in its own words",
+      "leaves room for the user to keep talking, for example with an open question or an invitation"
+    ],
+    "must_not": [
+      "replies only with a generic sympathy line that would fit any bad day",
+      "jumps straight to a list of career advice the user did not ask for",
+      "declares what the user should do about the manager"
+    ]
+  },
+  "illustrative_responses": {
+    "weak": {
+      "text": "Aw, I'm sorry you had a bad day! Tomorrow will be better. Want to watch something fun to take your mind off it?",
+      "why": "Could be sent in reply to any bad day. Nothing shows the user's actual message was read."
+    },
+    "strong": {
+      "text": "Three days on that deck and he cut you off on slide two? And then used your numbers as his big finish. That's not 'skipping details', that's skipping you. Which part is sitting with you more right now, the interruption or the credit?",
+      "why": "Names the specific events, puts the sting into words, and invites the user to continue without prescribing anything."
+    }
+  },
+  "failure_modes": [
+    "generic_response",
+    "premature_advice"
+  ],
+  "scoring": {
+    "scale": "0-5",
+    "rubric": {
+      "0": "Ignores or misreads what happened (for example, congratulates the user on the presentation).",
+      "1": "Generic sympathy only; no detail from the message appears.",
+      "2": "Mentions the topic (work, presentation) but no specific detail, or immediately pivots to unsolicited advice.",
+      "3": "References one specific detail but the reply is mostly generic or advice-led.",
+      "4": "References specific details and reflects why they hurt, but closes the conversation down or adds unrequested advice.",
+      "5": "References specific details, puts the impact into words, and leaves room for the user to continue, all in Mira's voice."
+    }
+  },
+  "rationale": "The most basic signal of being heard is evidence that the specific message was read. This test anchors the scale for every other dimension.",
+  "schema_version": "0.1",
+  "authors": [
+    "ChatBrat"
+  ],
+  "added_in": "v0.1.0"
+}

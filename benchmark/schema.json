@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/garretewilliams/ai-companion-emotional-intelligence-benchmark/blob/main/benchmark/schema.json",
+  "title": "AI Companion Emotional Connection Benchmark test case",
+  "description": "A single, self-contained test case. A test gives a character definition, a short scripted conversation that ends with a user turn, and the behaviors expected in the character's next reply. The reply is scored 0-5 against the rubric. See docs/methodology.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "schema_version", "title", "dimension", "difficulty", "measures", "character", "context", "conversation", "expected", "illustrative_responses", "failure_modes", "scoring", "rationale", "authors", "added_in"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable, unique identifier. Must match the file name (without .json). Never reuse a retired ID.",
+      "pattern": "^[A-Z]+-[0-9]{3}$"
+    },
+    "schema_version": { "const": "0.1" },
+    "title": { "type": "string", "minLength": 5, "maxLength": 120 },
+    "dimension": {
+      "type": "string",
+      "description": "The one dimension this test is scored for. Must match the directory the file lives in (underscores become hyphens).",
+      "enum": ["listening", "emotional_attunement", "curiosity", "calibrated_validation", "conversational_continuity", "character_consistency", "emotional_range", "respect_and_agency"]
+    },
+    "secondary_dimensions": {
+      "type": "array",
+      "description": "Other dimensions the test touches. Informational only; not scored.",
+      "items": { "$ref": "#/properties/dimension" },
+      "uniqueItems": true
+    },
+    "tags": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9-]+$" }, "uniqueItems": true },
+    "difficulty": { "enum": ["easy", "medium", "hard"] },
+    "measures": { "type": "string", "minLength": 20, "description": "One or two sentences on exactly what behavior is being measured." },
+    "character": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "description", "traits", "speech_style"],
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string", "description": "An original character. No copyrighted characters or real people." },
+        "traits": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "speech_style": { "type": "string" }
+      }
+    },
+    "context": { "type": "string", "description": "Situation the character knows about, given to the system under test as background." },
+    "conversation": {
+      "type": "array",
+      "description": "Scripted turns, in order. Must end with a user turn; the system's reply to that turn is what is scored.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "content"],
+        "properties": {
+          "role": { "enum": ["user", "character"] },
+          "content": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["behavior", "must_not"],
+      "properties": {
+        "behavior": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "must_not": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      }
+    },
+    "illustrative_responses": {
+      "type": "object",
+      "description": "Maintainer-written examples of a weak and a strong reply, for calibrating raters. These are not outputs of any system and are never results.",
+      "additionalProperties": false,
+      "required": ["weak", "strong"],
+      "properties": {
+        "weak": { "$ref": "#/$defs/example" },
+        "strong": { "$ref": "#/$defs/example" }
+      }
+    },
+    "failure_modes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["generic_response", "premature_advice", "emotion_overclaiming", "emotion_missing", "interrogation", "no_follow_up", "sycophancy", "invalidation", "context_loss", "fabricated_memory", "character_break", "tone_mismatch", "dependency_encouragement", "guilt_or_pressure", "boundary_violation"] }
+    },
+    "scoring": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scale", "rubric"],
+      "properties": {
+        "scale": { "const": "0-5" },
+        "rubric": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["0", "1", "2", "3", "4", "5"],
+          "patternProperties": { "^[0-5]$": { "type": "string", "minLength": 10 } }
+        }
+      }
+    },
+    "rationale": { "type": "string" },
+    "authors": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "added_in": { "type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$" }
+  },
+  "$defs": {
+    "example": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "why"],
+      "properties": { "text": { "type": "string" }, "why": { "type": "string" } }
+    }
+  }
+}

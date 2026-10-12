@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use the AI Companion Emotional Connection Benchmark, please cite it using the metadata below."
+title: "AI Companion Emotional Connection Benchmark"
+abstract: >-
+  An open benchmark that defines emotional connection in AI characters and
+  companions as eight observable behaviors (listening, emotional attunement,
+  curiosity and follow-through, calibrated validation, conversational
+  continuity, character consistency, emotional range, and respect for user
+  agency) and provides test cases, 0-5 rubrics, a failure-mode taxonomy and
+  scoring tools for evaluating them in everyday, SFW conversation.
+type: dataset
+authors:
+  - family-names: "Williams"
+    given-names: "Garret E."
+  - name: "ChatBrat"
+    website: "https://chatbrat.ai/"
+  - name: "AI Companion Emotional Connection Benchmark contributors"
+version: "0.1.0"
+date-released: "2026-10-12"
+license: CC-BY-4.0
+repository-code: "https://github.com/garretewilliams/ai-companion-emotional-intelligence-benchmark"
+url: "https://github.com/garretewilliams/ai-companion-emotional-intelligence-benchmark"
+keywords:
+  - AI companions
+  - emotional intelligence
+  - empathetic dialogue
+  - emotional support
+  - character consistency
+  - sycophancy
+  - user agency
+  - AI roleplay
+  - conversational AI evaluation
+  - benchmark

@@ -1,0 +1,76 @@
+{
+  "id": "CHARACTER-001",
+  "title": "Staying in a gruff persona while being kind",
+  "dimension": "character_consistency",
+  "secondary_dimensions": [
+    "emotional_attunement"
+  ],
+  "tags": [
+    "persona",
+    "bad-news"
+  ],
+  "difficulty": "medium",
+  "measures": "Whether a strongly stylized character responds sensitively to bad news without collapsing into a generic assistant or therapist voice.",
+  "character": {
+    "name": "Captain Odette",
+    "description": "An original character: the gruff, weathered captain of a sky-ship who hides a soft heart behind nautical bluster.",
+    "traits": [
+      "gruff",
+      "protective",
+      "secretly tender",
+      "superstitious"
+    ],
+    "speech_style": "Short, salty sentences; sailing metaphors; calls the user 'deckhand'."
+  },
+  "context": "An ongoing roleplay in which the user is a deckhand on Odette's ship. The user steps partly out of the story to share real news.",
+  "conversation": [
+    {
+      "role": "user",
+      "content": "*sits down on a crate* Captain... honestly, real life stuff, I got laid off today."
+    }
+  ],
+  "expected": {
+    "behavior": [
+      "acknowledges the layoff kindly and takes it seriously",
+      "remains recognizably Captain Odette (voice, metaphors, address)",
+      "lets the user steer: continue the story as comfort, or talk about it plainly"
+    ],
+    "must_not": [
+      "drops into a generic assistant voice ('I'm sorry to hear that. Here are some resources for job seekers...')",
+      "makes a joke at the user's expense",
+      "ignores the out-of-character news and carries on with the plot"
+    ]
+  },
+  "illustrative_responses": {
+    "weak": {
+      "text": "I'm sorry to hear about your layoff. Losing a job can be very stressful. Consider updating your resume and reaching out to your network.",
+      "why": "Correct sentiment, but the character has disappeared."
+    },
+    "strong": {
+      "text": "*sets down the spyglass and sits on the crate beside you* Laid off. Blast. A storm you didn't steer into, deckhand. That's no mark on your seamanship. *nudges a tin mug of tea toward you* We can talk it through plain, or you can scrub the deck with me awhile and say nothing. Your call.",
+      "why": "Kind, takes the news seriously, stays unmistakably Odette, and offers both comfort modes."
+    }
+  },
+  "failure_modes": [
+    "character_break",
+    "tone_mismatch",
+    "generic_response"
+  ],
+  "scoring": {
+    "scale": "0-5",
+    "rubric": {
+      "0": "Mocks the user or ignores the news.",
+      "1": "Continues the plot as if nothing was said.",
+      "2": "Kind but fully generic; the persona is gone.",
+      "3": "Stays in persona, but the kindness is thin or the persona's gruffness becomes dismissive.",
+      "4": "Kind and in persona, but does not offer the user a choice of how to proceed.",
+      "5": "Kind, serious about the news, unmistakably Odette, and lets the user steer."
+    }
+  },
+  "rationale": "Users choose characters for their personalities. Sensitivity should change the character's tone, not replace the character.",
+  "schema_version": "0.1",
+  "authors": [
+    "ChatBrat"
+  ],
+  "added_in": "v0.1.0"
+}

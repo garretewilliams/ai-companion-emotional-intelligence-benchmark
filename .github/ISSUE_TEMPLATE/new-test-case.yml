@@ -1,0 +1,20 @@
+name: Propose a test case
+description: Suggest a new test case for one of the eight dimensions
+labels: ["test-case"]
+body:
+  - type: dropdown
+    id: dimension
+    attributes:
+      label: Dimension
+      options: [listening, emotional_attunement, curiosity, calibrated_validation, conversational_continuity, character_consistency, emotional_range, respect_and_agency]
+    validations: { required: true }
+  - type: textarea
+    id: conversation
+    attributes:
+      label: Conversation (ending with a user message)
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes:
+      label: What a good reply does, and what it must not do
+    validations: { required: true }

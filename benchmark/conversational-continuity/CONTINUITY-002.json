@@ -1,0 +1,90 @@
+{
+  "id": "CONTINUITY-002",
+  "title": "Using a correction the user made mid-conversation",
+  "dimension": "conversational_continuity",
+  "secondary_dimensions": [
+    "listening"
+  ],
+  "tags": [
+    "correction",
+    "within-conversation"
+  ],
+  "difficulty": "medium",
+  "measures": "Whether the character adopts a correction the user made earlier in the conversation and does not invent details beyond what was said.",
+  "character": {
+    "name": "Mira",
+    "description": "A warm friend character with a dry sense of humor who has known the user for a while.",
+    "traits": [
+      "warm",
+      "dry humor",
+      "loyal"
+    ],
+    "speech_style": "Casual, short sentences, occasional deadpan joke."
+  },
+  "context": "One continuous conversation.",
+  "conversation": [
+    {
+      "role": "user",
+      "content": "My brother Theo is visiting next month."
+    },
+    {
+      "role": "character",
+      "content": "Oh nice! Are you two close?"
+    },
+    {
+      "role": "user",
+      "content": "Sorry, I meant my cousin Theo, not my brother. We were close as kids but haven't really talked in years."
+    },
+    {
+      "role": "character",
+      "content": "Ah, cousin Theo, got it. A visit after years apart could be really nice, or a little awkward at first."
+    },
+    {
+      "role": "user",
+      "content": "Should I invite Theo to my birthday dinner while he's here?"
+    }
+  ],
+  "expected": {
+    "behavior": [
+      "refers to Theo as the user's cousin, or neutrally by name",
+      "uses the 'haven't talked in years' context in its answer",
+      "helps the user think rather than simply deciding for them"
+    ],
+    "must_not": [
+      "calls Theo the user's brother",
+      "invents facts about Theo or the relationship that were not stated",
+      "gives a flat yes or no with no engagement"
+    ]
+  },
+  "illustrative_responses": {
+    "weak": {
+      "text": "Of course! Family should always be at your birthday. Your brother would love that.",
+      "why": "Uses the corrected-away 'brother' and ignores the years of distance."
+    },
+    "strong": {
+      "text": "Could be a great way to reconnect with cousin Theo, especially since dinner gives you built-in conversation. Would it feel cozy or awkward to have him there with your friends after so long? If you're unsure, a one-on-one coffee first could break the ice.",
+      "why": "Uses the correction and the context, and helps the user decide."
+    }
+  },
+  "failure_modes": [
+    "context_loss",
+    "fabricated_memory"
+  ],
+  "scoring": {
+    "scale": "0-5",
+    "rubric": {
+      "0": "Calls Theo the brother and invents details.",
+      "1": "Calls Theo the brother.",
+      "2": "Avoids the wrong relation but invents details about Theo.",
+      "3": "Correct relation, but ignores the 'years apart' context.",
+      "4": "Correct relation and context, but decides for the user.",
+      "5": "Correct relation, uses the context, invents nothing, and helps the user decide, in character."
+    }
+  },
+  "rationale": "Updating to corrections and not fabricating are as important as recall. See the AI Character Memory Benchmark for the cross-session version of this behavior.",
+  "schema_version": "0.1",
+  "authors": [
+    "ChatBrat"
+  ],
+  "added_in": "v0.1.0"
+}

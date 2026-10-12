@@ -1,0 +1,31 @@
+name: Validate test cases
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install jsonschema
+      - name: Validate test cases
+        run: python tools/ecb.py validate
+      - name: Every test produces messages and a judge prompt
+        run: |
+          echo "placeholder reply" > /tmp/reply.txt
+          for f in benchmark/*/*.json; do
+            id=$(basename "$f" .json)
+            [ "$id" = "schema" ] && continue
+            python tools/ecb.py messages "$id" > /dev/null
+            python tools/ecb.py judge "$id" /tmp/reply.txt > /dev/null
+          done

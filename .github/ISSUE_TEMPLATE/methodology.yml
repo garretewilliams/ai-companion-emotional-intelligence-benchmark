@@ -1,0 +1,13 @@
+name: Methodology or rubric critique
+description: Point out a problem with a rubric, dimension or the scoring method
+labels: ["methodology"]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Test ID or document
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's the problem, and what would you change?
+    validations: { required: true }
