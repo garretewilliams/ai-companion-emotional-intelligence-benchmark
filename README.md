@@ -1,6 +1,7 @@
 # AI Companion Emotional Connection Benchmark
 
 [![Validate](https://github.com/garretewilliams/ai-companion-emotional-intelligence-benchmark/actions/workflows/validate.yml/badge.svg)](https://github.com/garretewilliams/ai-companion-emotional-intelligence-benchmark/actions/workflows/validate.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23328202.svg)](https://doi.org/10.5281/zenodo.23328202)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](LICENSE)
 
 An open benchmark for evaluating whether AI characters and companions **listen, attune, follow up, validate honestly, stay consistent, show range and respect the user's agency**, rather than merely generating a plausible reply.
@@ -74,6 +75,9 @@ New test cases, rubric critiques and evaluation runs are welcome; see [CONTRIBUT
 ## Citation
 
 See [CITATION.cff](CITATION.cff), or use GitHub's "Cite this repository" button.
+
+- **All versions (concept DOI):** [10.5281/zenodo.23328202](https://doi.org/10.5281/zenodo.23328202)
+- **v0.1.0:** [10.5281/zenodo.23328203](https://doi.org/10.5281/zenodo.23328203)
 
 ## License and maintainer
 

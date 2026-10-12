@@ -16,6 +16,7 @@ authors:
     website: "https://chatbrat.ai/"
   - name: "AI Companion Emotional Connection Benchmark contributors"
 version: "0.1.0"
+doi: "10.5281/zenodo.23328202"
 date-released: "2026-10-12"
 license: CC-BY-4.0
 repository-code: "https://github.com/garretewilliams/ai-companion-emotional-intelligence-benchmark"
