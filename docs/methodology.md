@@ -21,6 +21,14 @@ Tests are deliberately short. Each isolates one behavior, so a low score points 
 
 ## Scoring
 
+The benchmark involves three kinds of checking. Always say which ones a reported result used:
+
+| Kind | What it checks | In v0.1 |
+|---|---|---|
+| **Automated checks** | Test files are well formed: schema, IDs and coverage (`ecb.py validate`); runs are complete (`ecb.py score`) | Yes. There are no automated checks of reply *content* |
+| **Human judgment** | Raters score replies against the rubric | Recommended, and the reference standard |
+| **AI-generated grading** | An LLM judge scores replies using the template in `scoring/judge-prompt.md` | Optional; must be checked against human scores |
+
 - **Human rating (preferred).** Two or more raters score each reply independently using the rubric and the illustrative responses. Disagreements of more than one point are discussed and re-rated. Report the agreement statistic you used.
 - **LLM-as-judge.** `python tools/ecb.py judge TEST-ID reply.txt` produces a judge prompt that returns a JSON score. Use a judge from a different model family than the system under test.
 - **Aggregation.** Put one JSON object per line in a file (`{"test_id": "...", "score": 4, "failure_modes": []}`), then run `python tools/ecb.py score results.jsonl`. This reports the mean per dimension, an unweighted mean across dimensions, and how often each failure mode appeared.
@@ -43,3 +51,16 @@ Before trusting an LLM judge, have humans score a sample (at least 3 replies per
 - **Rubrics encode judgments.** What counts as "warm" or "too many questions" varies by culture and by person. The rubrics aim for broadly shared norms and welcome critique.
 - **Small v0.1 set.** 16 tests (2 per dimension) is enough to define the framework, not to rank systems with confidence. Contributions of new tests are the most valuable way to help.
 - **Gaming.** Systems can be tuned to the published tests. Future versions may add a held-out set.
+- **Authored, synthetic scenarios.** All 16 conversations were written by the maintainers, not drawn from real user chats.
+- **English only.**
+- **No external validation yet.** The rubrics have not been reviewed by independent experts, inter-rater agreement has not been measured, LLM-judge scores have not been checked against human ratings, and overlap between dimensions has not been tested.
+- **An early-stage framework, not a validated instrument.** Treat v0.1 scores as diagnostic, not as a measure of emotional intelligence.
+
+## Before comparative results are published
+
+The maintainers will not publish comparative results until:
+1. independent reviewers have assessed whether each rubric captures its intended behavior;
+2. at least two human raters have scored the same replies and their agreement has been reported;
+3. any LLM judge has been checked against those human scores;
+4. the dimensions have been checked for overlap, and the rubrics for ways a system could game them;
+5. results can report uncertainty (repeated replies, ranges) and per-dimension scores, not only an overall number.

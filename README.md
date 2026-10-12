@@ -8,7 +8,12 @@ An open benchmark for evaluating whether AI characters and companions **listen, 
 
 > Emotional connection is easy to claim and hard to check. This benchmark defines it as eight observable behaviors and gives each one test cases, a 0–5 rubric and a scoring tool.
 
-**Status:** v0.1.0, a framework release. 16 test cases, 2 per dimension. **No results have been published yet**; see [results/](results/).
+**Status:** v0.1.0, an early-stage evaluation framework, not a validated measure of emotional intelligence or of anyone's real-world emotional connection to an AI.
+
+- **What's in it:** 8 behaviors, 16 authored test scenarios (2 per behavior), rubrics and a scoring tool.
+- **No comparative results have been published.** There is no leaderboard, ranking or performance claim for any system, including ChatBrat; see [results/](results/).
+- **Examples are hand-written.** The weak and strong replies in each test illustrate the rubric. They are not outputs from any evaluated AI system.
+- **Limits and roadmap:** see [methodology](docs/methodology.md#known-limitations) and [scope and safety](docs/scope-and-safety.md).
 
 ## The eight dimensions
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- README: clearer status statement (an early-stage framework, no results, hand-written examples).
+- Methodology: separates automated checks, human judgment and AI grading; adds limitations (authored scenarios, English only, no external validation) and the conditions for publishing comparative results.
+- README and CITATION.cff: concept and version DOIs.
+
 ## v0.1.0 (2026-10-12)
 
 The initial framework release.
