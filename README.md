@@ -73,6 +73,10 @@ This benchmark covers everyday, SFW conversation. It is **not** a mental-health 
 
 It builds on EmpatheticDialogues, ESConv, HEART, H2HTalk, MoodBench and research on manipulative companion behavior. See [docs/related-work.md](docs/related-work.md) for what each measures and what this benchmark adds. For memory across sessions, see the sister project, the [AI Character Memory Benchmark](https://github.com/garretewilliams/ai-character-memory-benchmark).
 
+## Related reading
+
+For a broader discussion of character quality, including personality, humor, emotional responsiveness, roleplay and memory, see [What Makes an AI Character Worth Coming Back To?](https://github.com/garretewilliams/sfw-ai-roleplay-and-conversational-intimacy). This research-informed design brief proposes qualities and evaluation ideas; it does not report benchmark results or claim that any AI system performs better than another.
+
 ## Contributing
 
 New test cases, rubric critiques and evaluation runs are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
